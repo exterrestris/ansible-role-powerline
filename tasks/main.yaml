@@ -4,3 +4,12 @@
   ansible.builtin.package:
     name: powerline
     state: present
+
+- name: 
+  ansible.builtin.blockinfile:
+    path: "/home/{{ item.user }}/.bashrc"
+    block: "{{ lookup('template', 'powerline.sh.j2') }}"
+    owner: "{{ item.user }}"
+    group: "{{ item.user }}"
+    mode: '0644'
+  with_items: "{{ powerline_users }}"
