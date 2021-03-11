@@ -1,0 +1,6 @@
+---
+
+- name: install powerline
+  ansible.builtin.package:
+    name: powerline
+    state: present
