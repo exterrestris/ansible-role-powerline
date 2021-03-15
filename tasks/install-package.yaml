@@ -1,0 +1,7 @@
+---
+- name: install from package manager
+  become: true
+  package:
+    name: powerline
+    state: present
+    update_cache: true

@@ -1,1 +1,5 @@
+---
+# Install method:
+powerline_install_from: package
+
 powerline_users: []
