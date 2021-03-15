@@ -6,6 +6,14 @@
     - "{{ ansible_distribution }}.yaml"
     - "{{ ansible_os_family }}.yaml"
 
+- name: install common prerequisites
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  with_items: "{{ powerline_prerequisites }}"
+
 - name: include install tasks
   import_tasks: "install-{{ powerline_install_from }}.yaml"
 

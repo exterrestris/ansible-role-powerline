@@ -1,2 +1,6 @@
 ---
+powerline_prerequisites:
+  - 'python3'
+  - 'python3-pip'
+
 powerline_binding: /usr/share/powerline/bindings/bash/powerline.sh
