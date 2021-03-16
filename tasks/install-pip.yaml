@@ -1,0 +1,5 @@
+---
+- name: install library
+  ansible.builtin.pip:
+    name: powerline-status
+    state: present
