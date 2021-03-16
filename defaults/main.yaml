@@ -1,5 +1,14 @@
 ---
-# Install method:
+# Install method: package, pip or source
 powerline_install_from: package
+
+# Github Repo URL
+powerline_source_github_url: https://github.com/powerline/powerline
+
+# Download directory
+powerline_source_download_dir: /tmp/powerline
+
+# Version to install: "latest", specific tag or branch
+powerline_source_version: latest
 
 powerline_users: []

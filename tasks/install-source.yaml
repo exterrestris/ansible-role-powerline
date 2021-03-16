@@ -1,0 +1,26 @@
+---
+- name: install prerequisites
+  ansible.builtin.pip:
+    name: setuptools
+    state: present
+
+- become: false
+  delegate_to: localhost
+  run_once: true
+  block:
+  - name: get latest release versiom from GitHub
+    uri:
+      url: "{{ powerline_source_github_url }}/releases/latest"
+    register: powerline_github_release_page
+  - name: Set latest version fact
+    set_fact:
+      powerline_source_version: "{{ powerline_github_release_page['url'].split('/')[-1] }}"
+  when: powerline_source_version == "latest"
+
+- name: clone GitHub repo
+  git:
+    repo: "{{ powerline_source_github_url }}"
+    dest: "{{ powerline_source_download_dir }}"
+    version: "{{ powerline_source_version }}"
+    update: yes
+    force: yes
